@@ -4,12 +4,12 @@
   <parent>
     <artifactId>maven-test-provenance</artifactId>
     <groupId>io.github.behnazh-w.demo</groupId>
-    <version>2.0.3</version>
+    <version>2.1.0</version>
   </parent>
 
   <groupId>io.github.behnazh-w.demo</groupId>
   <artifactId>data</artifactId>
-  <version>2.0.3</version>
+  <version>2.1.0</version>
 
   <name>data</name>
   <url>https://github.com/behnazh-w/example-maven-provenance</url>

@@ -24,15 +24,17 @@ jobs:
       with:
         fetch-depth: 0
 
-    # Use Oracle Java SE for compiling.
-    - name: Setup Oracle Java SE
-      uses: oracle-actions/setup-java@83e2004a40aaa491fbc6b4697353b9a75b095efb # v1.3.4
+    # Install Java.
+    - name: Set up JDK
+      uses: actions/setup-java@cd89f46ac9d01407894225f350157564c9c7cee2 # v3.12.0
       with:
-        website: oracle.com
-        release: '17'
+        distribution: temurin
+        java-version: 17
+        cache: maven
 
-    - name: Build the artifact
-      run: ./mvnw source:jar package
+    - name: Build
+      run: |
+        ./mvnw clean package
 
     # Build provenance
     - name: Attest Build Provenance

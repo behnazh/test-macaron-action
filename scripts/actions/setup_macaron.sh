@@ -7,10 +7,15 @@ set -euo pipefail
 MACARON_DIR="${RUNNER_TEMP:-/tmp}/macaron"
 mkdir -p "$MACARON_DIR"
 
+ACTION_DIR="${RUNNER_TEMP:-/tmp}/macaron-action"
+rm -rf "$ACTION_DIR"
+mkdir -p "$ACTION_DIR"
+
+git clone --filter=blob:none --no-checkout https://github.com/behnazh/test-macaron-action.git "$ACTION_DIR"
+
 ref="$GITHUB_REF"
 MACARON_IMAGE_TAG=""
-cd "$GITHUB_ACTION_PATH"
-ls -la
+cd "$ACTION_DIR"
 if [[ "$ref" == refs/tags/* ]]; then
     MACARON_IMAGE_TAG="${ref#refs/tags/}"
     echo "Ref is a tag: $MACARON_IMAGE_TAG"
